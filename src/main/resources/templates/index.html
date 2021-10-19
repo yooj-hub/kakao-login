@@ -4,10 +4,28 @@
     <meta charset="UTF-8">
     <title>Login Test</title>
 </head>
+<style>
+    button, input[type="submit"], input[type="reset"] {
+        background: none;
+        color: inherit;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+    }
+    .loginBtn{
+        background: #EEEE00;
+        color: saddlebrown;
+        padding: 0.3rem;
+        border-radius: 10%;
+    }
+
+</style>
 <body>
 <h1>hello</h1>
 <h1 th:text="${user?.name}"></h1>
-<a href="/oauth2/authorization/kakao"> Kakao Login</a>
-<a href="/logout"> Kakao Logout</a>
+<button type="button" onclick="location.href='/oauth2/authorization/kakao'" class="loginBtn">kakao login</button>
+<button type="button" onclick="location.href='/logout'" class="loginBtn">kakao logout</button>
 </body>
 </html>

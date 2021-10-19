@@ -32,20 +32,20 @@ public class OAuthAttributes {
     }
 
     private static OAuthAttributes ofKakao(String userNAmeAttributeName, Map<String, Object> attributes) {
-        Map<String, Object> kakaoAcount = (Map<String, Object>) attributes.get("kakao_account");
-        Map<String, Object> kakaoProfile = (Map<String, Object>) kakaoAcount.get("profile");
-        for (String s : kakaoAcount.keySet()) {
-            log.info("{} = {}",s,kakaoAcount.get(s));
+        Map<String, Object> account = (Map<String, Object>) attributes.get("kakao_account");
+        Map<String, Object> profile = (Map<String, Object>) account.get("profile");
+        /*for (String s : account.keySet()) {
+            log.info("{} = {}",s,account.get(s));
         }
         System.out.println("==");
-        for (String s : kakaoProfile.keySet()) {
-            log.info("{} = {}",s,kakaoProfile.get(s));
-        }
+        for (String s : profile.keySet()) {
+            log.info("{} = {}",s,profile.get(s));
+        }*/
 
         return OAuthAttributes.builder()
-                .name((String) kakaoProfile.get("nickname"))
-                .email((String) kakaoProfile.get("email"))
-                .picture((String) kakaoProfile.get("profile_image_url"))
+                .name((String) profile.get("nickname"))
+                .email((String) profile.get("email"))
+                .picture((String) profile.get("profile_image_url"))
                 .attributes(attributes)
                 .nameAttributeKey(userNAmeAttributeName)
                 .build();
