@@ -28,10 +28,10 @@ public class OAuthAttributes {
 
     public static OAuthAttributes of(String registrationId, String userNameAttributeName, Map<String, Object> attributes) {
 
-        return ofKakao("id", attributes);
+        return ofKakao("kakao_account", attributes);
     }
 
-    private static OAuthAttributes ofKakao(String userNAmeAttributeName, Map<String, Object> attributes) {
+    private static OAuthAttributes ofKakao(String userNameAttributeName, Map<String, Object> attributes) {
         Map<String, Object> account = (Map<String, Object>) attributes.get("kakao_account");
         Map<String, Object> profile = (Map<String, Object>) account.get("profile");
         /*for (String s : account.keySet()) {
@@ -47,7 +47,7 @@ public class OAuthAttributes {
                 .email((String) profile.get("email"))
                 .picture((String) profile.get("profile_image_url"))
                 .attributes(attributes)
-                .nameAttributeKey(userNAmeAttributeName)
+                .nameAttributeKey(userNameAttributeName)
                 .build();
     }
 
