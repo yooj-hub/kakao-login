@@ -8,6 +8,9 @@
 
 ### 사용 기술
 
+- JAVA 8 
+- Spring boot(2.5.5)
+
 - Spring Security
 - Spring Data JPA
 - Thymeleaf
